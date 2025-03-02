@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Yapılacaklar Listem</h1>
+        <form id="task-form">
+            <input type="text" id="task-title" placeholder="Görev Başlığı">
+            <input type="text" id="task-desc" placeholder="Açıklama">
+            <div class="priority">
+                <h4>Öncelik:</h4>
+                <label>
+                    <input type="radio" name="priority" value="Düşük">Düşük</label>
+                <label>
+                    <input type="radio" name="priority" value="Orta">Orta</label>
+                <label>
+                    <input type="radio" name="priority" value="Yüksek">Yüksek</label>
+            </div>
+            <button type="submit">Görev Ekle</button>
+        </form>
+
+        <div class="filter-buttons">
+            <button id="filter-completed" class="hidden">Sadece tamamlananları göster</button>
+            <button id="show-all" class="hidden">Tüm görevleri göster</button>
+            <button id="sort-priority" class="hidden">Önceliğe göre sırala (Düşük → Yüksek)</button>
+        </div>
+        <ul id="task-list"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
