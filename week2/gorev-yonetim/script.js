@@ -64,11 +64,16 @@ const filterTasks = (showCompleted) => {
 filterCompletedBtn.addEventListener("click", () => filterTasks(true));
 showAllBtn.addEventListener("click", () => filterTasks(false));
 
+
+let ascending = true;
 sortPriorityBtn.addEventListener("click", () => {
     const priorityOrder = { "Düşük": 1, "Orta": 2, "Yüksek": 3 };
-    const sortedTasks = [...taskList.children].sort(
-        (a, b) => priorityOrder[a.dataset.priority] - priorityOrder[b.dataset.priority]
-    );
+    const sortedTasks = [...taskList.children].sort((a, b) => {
+        return ascending
+            ? priorityOrder[a.dataset.priority] - priorityOrder[b.dataset.priority]
+            : priorityOrder[b.dataset.priority] - priorityOrder[a.dataset.priority];
+    });
 
     taskList.replaceChildren(...sortedTasks);
+    ascending = !ascending;
 });
