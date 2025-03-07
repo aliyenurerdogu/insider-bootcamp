@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    display: grid;
+}
+
+#apply-button {
+    padding: 20px;
+    margin: 20px;
+    background-color: yellow;
+    border: 1px solid lightgray;
+    border-radius: 7px;
+    cursor: pointer;
+
+}
+
+#validate-form {
+    display: none;
+    justify-content: center;
+    margin: 15px;
+    padding: 20px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+#validate-form input,
+#validate-form button {
+    margin: 10px;
+    padding: 3px;
+}
+
+#validate-form input {
+    flex: 1;
+    border: 1px solid lightgray;
+    border-radius: 7px;
+    padding: 5px;
+}
+
+#validate-form button {
+    background-color: lightgreen;
+    justify-content: center;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+.error {
+    color: red;
+    font-size: 16px;
+    margin-top: 5px;
+    display: block;
+}
+
+.success-message {
+    display: none;
+    color: green;
+    font-weight: bold;
+}
