@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+    <script>
+        $(document).ready(function () {
+            const init = () => {
+                buildCss();
+                loadProducts();
+            };
+            const buildCss = () => {
+                $('<style>').html(`
+                    body {
+                        background-color: #f0f0f0;
+                        font-family: Arial, sans-serif;
+                    }
+                    .product-item {
+                        cursor: pointer;
+                        width: 200px;
+                        height: 350px;
+                        border: 1px solid lightgray;
+                        text-align: center;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        align-items: center;
+                        border-radius: 10px;
+                        margin: 20px;
+                        background-color: #e6ccb2;
+                    }
+                    .product-item img {
+                        align-self: flex-start; 
+                        margin-top: 0;
+                        width: 100%; 
+                        height: auto;
+                        border-top-left-radius: 10px;
+                        border-top-right-radius: 10px;
+                    }
+                    #product-list {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-evenly;
+                        margin-top: 30px;
+                        padding: 0 50px;
+                    }
+                    #popup {
+                        position: fixed;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0, 0, 0, 0.5);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        top: 0;
+                        left: 0;
+                        z-index: 1000;
+                        display: none;
+                        cursor: pointer;
+                    }
+                    #popup-content {
+                        width: 250px;
+                        padding: 20px;
+                        background-color: white;
+                        border-radius: 10px;
+                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                        text-align: center;
+                        cursor: default;
+                    }
+                    #close-popup {
+                        margin-top: 10px;
+                        padding: 10px;
+                        background-color: red;
+                        color: white;
+                        border: none;
+                        cursor: pointer;
+                        border-radius: 5px;
+                    }
+                    #popup-content a{
+                        text-decoration: none;
+                        color:orange;
+                        margin-right: 10px;
+                    }
+                `).addClass('products-css').appendTo('head');
+            };
+
+            const buildHtml = (products) => {
+                $('body').append(`<div id='product-list'></div>`);
+                $('body').append(`<div id='popup'><div id='popup-content'></div></div>`);
+
+                $.map(products, function ({ image, name, price, details, link }) {
+                    const productItem = $('<div>').addClass('product-item')
+                        .append(
+                            $('<img>').attr({ src: image, alt: name }),
+                            $('<h3>').text(name),
+                            $('<p>').text(price)
+                        ).data({ details, link, name });
+
+                    $('#product-list').append(productItem);
+                });
+            };
+
+
+            const loadProducts = () => {
+                $.ajax({
+                    url: 'products.json',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (products) {
+                        buildHtml(products);
+                    },
+                    error: function (xhr, status) {
+                        console.log(xhr, status);
+                    }
+                });
+            };
+
+            $(document).on('mouseenter', '.product-item', function () {
+                $(this).css({ 'transform': 'scale(1.1)', 'transition': '0.3s', 'background-color': '#ddb892' });
+            });
+
+            $(document).on('mouseleave', '.product-item', function () {
+                $(this).css({ 'transform': 'scale(1)', 'background-color': '#e6ccb2' });
+            });
+
+            $(document).on('click', '.product-item', function () {
+                const data = $(this).data();
+                $('#popup-content').html(`
+                    <h3>${data.name}</h3>
+                    <p>${data.details}</p>
+                    <a href="${data.link}" target="_blank">Ürünü incele</a>
+                    <button id="close-popup">Kapat</button>
+                `);
+                $('#popup').fadeIn().css('display', 'flex');
+
+            });
+
+            $(document).on('click', '#popup', () => {
+                $('#popup').fadeOut();
+            });
+
+            $(document).on('click', '#popup-content', (event) => {
+                event.stopPropagation();
+            });
+
+            $(document).on('click', '#close-popup', () => {
+                $('#popup').fadeOut();
+            });
+
+            init();
+        });
+    </script>
+
+</body>
+
+</html>

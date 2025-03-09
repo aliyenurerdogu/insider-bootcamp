@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Telefon",
+        "price": "5000 TL",
+        "image": "https://picsum.photos/id/221/200/200",
+        "details": "Akıllı telefon, en son teknoloji.",
+        "link": "https://example.com/telefon"
+    },
+    {
+        "name": "Laptop",
+        "price": "15000 TL",
+        "image": "https://picsum.photos/id/240/200/200",
+        "details": "Yüksek performanslı laptop.",
+        "link": "https://example.com/laptop"
+    },
+    {
+        "name": "Tablet",
+        "price": "8000 TL",
+        "image": "https://picsum.photos/id/244/200/200",
+        "details": "Taşınabilir ve güçlü tablet.",
+        "link": "https://example.com/tablet"
+    },
+    {
+        "name": "Kulaklık",
+        "price": "1200 TL",
+        "image": "https://picsum.photos/id/238/200/200",
+        "details": "Kablosuz, yüksek kaliteli ses deneyimi.",
+        "link": "https://example.com/kulaklik"
+    },
+    {
+        "name": "Akıllı Saat",
+        "price": "3500 TL",
+        "image": "https://picsum.photos/id/278/200/200",
+        "details": "Spor ve günlük kullanım için ideal.",
+        "link": "https://example.com/akilli-saat"
+    },
+    {
+        "name": "Klavye",
+        "price": "900 TL",
+        "image": "https://picsum.photos/id/273/200/200",
+        "details": "Mekanik oyuncu klavyesi.",
+        "link": "https://example.com/klavye"
+    },
+    {
+        "name": "Mouse",
+        "price": "600 TL",
+        "image": "https://picsum.photos/id/253/200/200",
+        "details": "Hassas ve ergonomik tasarım.",
+        "link": "https://example.com/mouse"
+    },
+    {
+        "name": "Monitör",
+        "price": "4500 TL",
+        "image": "https://picsum.photos/id/249/200/200",
+        "details": "Ekran kalitesi mükemmel! Renkler canlı!",
+        "link": "https://example.com/monitor"
+    },
+    {
+        "name": "Hoparlör",
+        "price": "2000 TL",
+        "image": "https://picsum.photos/id/272/200/200",
+        "details": "Ses kalitesi çok başarılı, özellikle baslar güçlü.",
+        "link": "https://example.com/hoparlor"
+    },
+    {
+        "name": "Webcam",
+        "price": "1800 TL",
+        "image": "https://picsum.photos/id/283/200/200",
+        "details": "Görüntü kalitesi gerçekten çok iyi! Zoom toplantılarım için mükemmel oldu.",
+        "link": "https://example.com/webcam"
+    }
+]
